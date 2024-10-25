@@ -3,7 +3,6 @@ File for testing api's connections
 """
 import fastf1
 
-
 def test_connection():
     """
     Tests connection to the fastf1 api
