@@ -1,9 +1,8 @@
 """
-File for getting live data from the fastf1 api.
+File for getting live data from the fast-f1 api.
 """
 
 import fastf1
-from fastf1 import get_session
 
 
 def get_and_load_session(year,gp,ident):
