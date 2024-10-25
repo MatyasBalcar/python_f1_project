@@ -1,13 +1,19 @@
 """
 Module for printing information in formated w ay
 """
+import pandas as pd
 
 def print_laps(laps):
     """
     :param laps:
     :return: nothing
     """
-    # Iterating over the DataFrame and printing each row in a formatted manner
     for idx, row in laps.iterrows():
-        print(f"Lap {idx + 1}: Time = {row['LapTime']}, Driver = {row['Driver']}")
+        lap_time = pd.to_timedelta(row['LapTime'])
+
+        minutes = lap_time.components.minutes
+        seconds = lap_time.components.seconds
+        milliseconds = lap_time.components.milliseconds
+
+        print(f"Lap {idx + 1}: Time = {minutes:02}:{seconds:02}.{milliseconds:03}, Driver = {row['Driver']}")
 
