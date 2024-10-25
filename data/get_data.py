@@ -36,12 +36,19 @@ def get_driver(session, ident):
     return session.get_driver(ident)
 
 
-def get_results(session):
+def get_laps(session, ident, only_accurate=False):
     """
-    :param session:
-    :return: results [object]
+    :param session: The session object containing lap data
+    :param ident: The driver identifier to pick laps for
+    :param only_accurate: If True, only return laps where IsAccurate is True
+    :return: laps [DataFrame]
     """
-    return session.results
+    laps = session.laps.pick_driver(ident)
+
+    if only_accurate:
+        laps = laps[laps["IsAccurate"] == True]
+
+    return laps
 
 
 if __name__ == '__main__':
