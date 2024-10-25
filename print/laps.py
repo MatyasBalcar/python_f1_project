@@ -16,4 +16,3 @@ def print_laps(laps):
         milliseconds = lap_time.components.milliseconds
 
         print(f"Lap {idx + 1}: Time = {minutes:02}:{seconds:02}.{milliseconds:03}, Driver = {row['Driver']}")
-

@@ -8,4 +8,4 @@ from print.laps import *
 
 session = get_and_load_session(2024,1,"Q")
 laps = get_laps(session, 'VER', True)
-print_laps(laps)
+print(get_maximum_speeds(session))

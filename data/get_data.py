@@ -50,6 +50,25 @@ def get_laps(session, ident, only_accurate=False):
 
     return laps
 
+def get_maximum_speed(laps_for_driver):
+    minimum = 0
+    for idx, row in laps_for_driver.iterrows():
+        if row["SpeedST"] > minimum:
+            minimum = row["SpeedST"]
+
+    return minimum
+
+
+def get_maximum_speeds(session):
+    speeds={
+
+    }
+    drivers = get_drivers_list(session)
+
+    for driver in drivers:
+        speeds[driver] = get_maximum_speed(get_laps(session, driver))
+    return speeds
+
 
 if __name__ == '__main__':
     print("This file should be imported, not ran separately")
