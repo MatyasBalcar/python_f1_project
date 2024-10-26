@@ -5,7 +5,7 @@ File for getting live data from the fast-f1 api.
 import fastf1
 
 
-def get_and_load_session(year,gp,ident):
+def get_and_load_session(year, gp, ident):
     """
     :param year:
     :param gp:
@@ -14,7 +14,7 @@ def get_and_load_session(year,gp,ident):
     also loads the session
     """
 
-    session = fastf1.get_session(year,gp,ident)
+    session = fastf1.get_session(year, gp, ident)
     session.load()
     return session
 
@@ -50,6 +50,7 @@ def get_laps(session, ident, only_accurate=False):
 
     return laps
 
+
 def get_maximum_speed(laps_for_driver):
     minimum = 0
     for idx, row in laps_for_driver.iterrows():
@@ -60,7 +61,7 @@ def get_maximum_speed(laps_for_driver):
 
 
 def get_maximum_speeds(session):
-    speeds={
+    speeds = {
 
     }
     drivers = get_drivers_list(session)
