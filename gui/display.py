@@ -21,8 +21,8 @@ def draw_max_speeds(speeds):
     # colors for the tower graphs with driver colors
     color = [convert_abb_to_color(abb) for abb in speeds]
 
-    fig, ax = plt.subplots()
-    ax.bar(speeds.keys(), speeds.values(), color=color)
+    fig, ax = plt.subplots(figsize=(12, 6))
+    ax.bar(speeds.keys(), speeds.values(), color=color, width = 0.8)
     plt.ylim(min(speeds.values()) - offset, max(speeds.values()))
 
     plt.show()
