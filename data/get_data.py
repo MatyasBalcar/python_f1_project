@@ -46,7 +46,7 @@ def get_laps(session, ident, only_accurate=False):
     laps = session.laps.pick_driver(ident)
 
     if only_accurate:
-        laps = laps[laps["IsAccurate"] == True]
+        laps = laps[laps["IsAccurate"] is True]
 
     return laps
 
@@ -61,6 +61,10 @@ def get_maximum_speed(laps_for_driver):
 
 
 def get_maximum_speeds(session):
+    """
+    :param session:
+    :return: dict [ident:speed]
+    """
     speeds = {
 
     }
