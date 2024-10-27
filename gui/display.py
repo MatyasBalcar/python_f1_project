@@ -24,8 +24,7 @@ def draw_max_speeds(speeds):
     plt.style.use("dark_background")
 
     fig, ax = plt.subplots(figsize=(12, 6))
-    ax.bar(speeds.keys(), speeds.values(), color=color, width = 0.8)
+    ax.bar(speeds.keys(), speeds.values(), color=color, width=0.8)
     plt.ylim(min(speeds.values()) - offset, max(speeds.values()))
-
 
     plt.show()
