@@ -25,6 +25,7 @@ def get_drivers_list(session):
     :return: drivers [list[ident]]
     """
     drivers = session.drivers
+    drivers = [session.get_driver(driver)["Abbreviation"] for driver in drivers]
     return drivers
 
 
@@ -46,7 +47,7 @@ def get_laps(session, ident, only_accurate=False):
     laps = session.laps.pick_driver(ident)
 
     if only_accurate:
-        laps = laps[laps["IsAccurate"] is True]
+        laps = laps[laps["IsAccurate"] == True]
 
     return laps
 
